@@ -12,9 +12,9 @@ function Header() {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: 'rgb(236, 241, 255)',
+        backgroundColor: 'rgb(79, 160, 149))',
         width: '100%', 
-        height: 130,
+        height: 120,
         justifyContent: 'center',
         alignItems: 'center', 
         flexDirection: 'column', 

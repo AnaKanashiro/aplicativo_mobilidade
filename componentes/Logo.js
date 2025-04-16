@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     logoText: {
         fontSize: 35,
-        color: 'rgb(20, 0, 109)',
+        color: 'rgb(255, 255, 201)',
     },
     boldText: {
         fontWeight: 'bold',
