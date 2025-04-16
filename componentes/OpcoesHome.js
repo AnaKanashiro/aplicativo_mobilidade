@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
+import { globalStyles } from '../styles/globalStyles';
 const OpcoesHome = () => {
   const navigation = useNavigation();
 
@@ -13,7 +13,7 @@ const OpcoesHome = () => {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.screenContainer}>
       {buttons.map((button, index) => (
         <View key={index} style={styles.buttonContainer}>
           <FontAwesome.Button
@@ -33,11 +33,7 @@ const OpcoesHome = () => {
   );
 };
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      paddingHorizontal: 20,
-    },
+
     buttonContainer: {
       marginVertical: 15, 
     },

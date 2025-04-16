@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { globalStyles } from "../styles/globalStyles";
 
 export default function LogInScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -33,11 +34,11 @@ export default function LogInScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Login</Text>
+    <View style={globalStyles.screenContainer}>
+      <Text style={globalStyles.titulo}>Login</Text>
 
       <TextInput
-        style={styles.input}
+        style={globalStyles.input}
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
@@ -46,17 +47,17 @@ export default function LogInScreen({ navigation }) {
       />
 
       <TextInput
-        style={styles.input}
+        style={globalStyles.input}
         placeholder="Senha"
         value={senha}
         onChangeText={setSenha}
         secureTextEntry
       />
 
-      {erro ? <Text style={styles.erro}>{erro}</Text> : null}
+      {erro ? <Text style={globalStyles.erro}>{erro}</Text> : null}
 
-      <TouchableOpacity style={styles.botao} onPress={handleLogin}>
-        <Text style={styles.textoBotao}>Entrar</Text>
+      <TouchableOpacity style={globalStyles.botao} onPress={handleLogin}>
+        <Text style={globalStyles.textoBotao}>Entrar</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
@@ -67,46 +68,10 @@ export default function LogInScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-    backgroundColor: "#fff",
-  },
-  titulo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-    textAlign: "center",
-    color: "rgb(20, 0, 109)",
-  },
-  input: {
-    height: 50,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 10,
-    marginBottom: 15,
-  },
-  botao: {
-    backgroundColor: "rgb(160, 0, 247)",
-    padding: 15,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  textoBotao: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
+
   link: {
-    color: "#2563EB",
+    color: "rgb(255, 255, 201)",
     textAlign: "center",
     marginTop: 20,
-  },
-  erro: {
-    color: "red",
-    textAlign: "center",
-    marginBottom: 10,
   },
 });

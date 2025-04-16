@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { globalStyles } from '../styles/globalStyles';
 
 function RotaHistoricoCard({ nome, partida, destino, descricao, onSave, isFavorite }) {
   return (
-    <View style={styles.card}>
+    <View style={globalStyles.card}>
       <Text style={styles.nome}>{nome}</Text>
       <Text style={styles.partida}>Partida: {partida}</Text>
       <Text style={styles.destino}>Destino: {destino}</Text>
@@ -21,19 +22,11 @@ function RotaHistoricoCard({ nome, partida, destino, descricao, onSave, isFavori
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: 'rgb(236, 241, 255)',
-    padding: 16,
-    borderRadius: 10,
-    marginBottom: 15,
-    elevation: 3,
-    width: '100%',
-  },
   nome: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 6,
-    color: 'rgb(122, 27, 255)',
+    color: 'rgb(79, 160, 149)',
   },
   partida: {
     fontSize: 14,

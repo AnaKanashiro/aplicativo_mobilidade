@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { globalStyles } from "../styles/globalStyles";
 
 export default function CadastroScreen({ navigation }) {
   const [nome, setNome] = useState("");
@@ -53,18 +54,18 @@ export default function CadastroScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Cadastro</Text>
+    <View style={globalStyles.screenContainer}>
+      <Text style={globalStyles.titulo}>Cadastro</Text>
 
       <TextInput
-        style={styles.input}
+        style={globalStyles.input}
         placeholder="Nome"
         value={nome}
         onChangeText={setNome}
       />
 
       <TextInput
-        style={styles.input}
+        style={globalStyles.input}
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
@@ -73,7 +74,7 @@ export default function CadastroScreen({ navigation }) {
       />
 
       <TextInput
-        style={styles.input}
+        style={globalStyles.input}
         placeholder="Senha"
         value={senha}
         onChangeText={setSenha}
@@ -81,7 +82,7 @@ export default function CadastroScreen({ navigation }) {
       />
 
       <TextInput
-        style={styles.input}
+        style={globalStyles.input}
         placeholder="Confirmar Senha"
         value={confirmarSenha}
         onChangeText={setConfirmarSenha}
@@ -91,17 +92,17 @@ export default function CadastroScreen({ navigation }) {
       <View style={styles.termosContainer}>
         <Switch value={aceitouTermos} onValueChange={setAceitouTermos} />
         <View style={styles.termosTextoContainer}>
-          <Text style={styles.termosTexto}>Concordo com os </Text>
+          <Text style={globalStyles.text}>Concordo com os </Text>
           <TouchableOpacity onPress={abrirTermosDeUso}>
             <Text style={styles.termosLink}> Termos de Uso e Política de Privacidade (LGPD)</Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      {erro ? <Text style={styles.erro}>{erro}</Text> : null}
+      {erro ? <Text style={globalStyles.erro}>{erro}</Text> : null}
 
-      <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
-        <Text style={styles.textoBotao}>Cadastrar</Text>
+      <TouchableOpacity style={globalStyles.botao} onPress={handleCadastro}>
+        <Text style={globalStyles.textoBotao}>Cadastrar</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate("LogIn")}>
@@ -112,55 +113,15 @@ export default function CadastroScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-    backgroundColor: "#fff",
-  },
-  titulo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  input: {
-    height: 50,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 10,
-    marginBottom: 15,
-  },
-  termosContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20,
-  },
   termosTexto: {
     marginLeft: 10,
     flex: 1,
-  },
-  botao: {
-    backgroundColor: "rgb(160, 0, 247)",
-    padding: 15,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  textoBotao: {
-    color: "#fff",
-    fontWeight: "bold",
+    fontSize: 14,
   },
   link: {
-    color: "#2563EB",
+    color: "#rgb(186, 209, 194)",
     textAlign: "center",
     marginTop: 20,
-  },
-  erro: {
-    color: "red",
-    textAlign: "center",
-    marginBottom: 10,
   },
   termosContainer: {
     flexDirection: "row",
@@ -174,9 +135,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginLeft: 10,
     flex: 1,
-  },
-  termosTexto: {
-    fontSize: 14,
   },
   termosLink: {
     color: "rgb(160, 0, 247)",

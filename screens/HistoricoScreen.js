@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, FlatList, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import RotaHistoricoCard from "../componentes/RotaHistoricoCard.js";
 import HistoricoRotasDados from "../mocks/historicoRotasDados.js";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { globalStyles } from "../styles/globalStyles.js";
 
 export default function HistoricoScreen() {
   const navigation = useNavigation();
@@ -23,11 +30,13 @@ export default function HistoricoScreen() {
   };
 
   const adicionarOuRemoverFavorito = async (rota) => {
-    const jaFavorita = rotasFavoritas.some(favorita => favorita.id === rota.id);
+    const jaFavorita = rotasFavoritas.some(
+      (favorita) => favorita.id === rota.id
+    );
     let novasFavoritas = [...rotasFavoritas];
 
     if (jaFavorita) {
-      novasFavoritas = novasFavoritas.filter(f => f.id !== rota.id);
+      novasFavoritas = novasFavoritas.filter((f) => f.id !== rota.id);
     } else {
       novasFavoritas.push(rota);
     }
@@ -36,14 +45,17 @@ export default function HistoricoScreen() {
 
     // Salva as rotas favoritas no AsyncStorage
     try {
-      await AsyncStorage.setItem("rotasFavoritas", JSON.stringify(novasFavoritas));
+      await AsyncStorage.setItem(
+        "rotasFavoritas",
+        JSON.stringify(novasFavoritas)
+      );
     } catch (error) {
       console.error("Erro ao salvar favoritos:", error);
     }
   };
 
   const renderItem = ({ item }) => {
-    const isFavorite = rotasFavoritas.some(f => f.id === item.id);
+    const isFavorite = rotasFavoritas.some((f) => f.id === item.id);
     return (
       <RotaHistoricoCard
         nome={item.nome}
@@ -62,7 +74,7 @@ export default function HistoricoScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Últimas Rotas</Text>
+      <Text style={globalStyles.titulo}>Últimas Rotas</Text>
       <FlatList
         data={historicoRotas}
         keyExtractor={(item) => item.id}
@@ -70,11 +82,11 @@ export default function HistoricoScreen() {
         extraData={rotasFavoritas}
       />
       <TouchableOpacity
-        style={styles.homeButton}
+        style={globalStyles.botaoContainer}
         onPress={() => navigation.navigate("Home")}
       >
-        <Feather name="home" size={24} color="white" />
-        <Text style={styles.homeButtonText}>Voltar para Home</Text>
+        <Feather name="home" size={24} color='rgb(255, 255, 201)'  />
+        <Text style={globalStyles.text}>Voltar para Home</Text>
       </TouchableOpacity>
     </View>
   );
@@ -83,29 +95,7 @@ export default function HistoricoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    paddingTop: 60,
-    backgroundColor: "#fff",
-  },
-  titulo: {
-    fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 20,
-    textAlign: "center",
-    color: "#0a4973",
-  },
-  homeButton: {
-    position: "absolute",
-    bottom: 20,
-    right: 20,
-    backgroundColor: "#2563EB",
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    borderRadius: 8,
-  },
-  homeButtonText: {
-    color: "white",
-    marginLeft: 5,
+    padding: 20,
+    backgroundColor: "rgb(21, 52, 98)",
   },
 });
