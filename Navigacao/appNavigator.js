@@ -18,7 +18,7 @@ export default function AppNavigator() {
       <Stack.Navigator 
         initialRouteName="LogIn"
         screenOptions={{
-          headerShown: false // Remove header de todas as telas
+          headerShown: false 
         }}
       >
         <Stack.Screen name="LogIn" component={LogInScreen} />

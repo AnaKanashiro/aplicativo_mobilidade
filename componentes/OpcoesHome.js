@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20,
     },
     buttonContainer: {
-      marginVertical: 15, // Aumentei o espaçamento
+      marginVertical: 15, 
     },
     button: {
       width: '100%',
       justifyContent: 'center',
-      paddingVertical: 15, // Aumentei o padding
+      paddingVertical: 15, 
     }
   });
 

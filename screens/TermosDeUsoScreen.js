@@ -3,7 +3,7 @@ import { ScrollView, Text, StyleSheet, View, TouchableOpacity } from "react-nati
 
 export default function TermosDeUsoScreen({ navigation }) {
   const handleVoltar = () => {
-    navigation.goBack(); // Retorna para a tela anterior (CadastroScreen)
+    navigation.goBack(); 
   };
 
   return (
